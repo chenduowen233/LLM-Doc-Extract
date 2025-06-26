@@ -1,0 +1,39 @@
+# 文档处理配置
+processing:
+  # URL爬取模块配置
+  get_url:
+    enable: false
+    input_file: "url/input.json"
+    output_file: "url/output.json"
+    crawl_related_urls: true
+    onlyMainContent: false
+    includeTags: []
+    excludeTags: []
+    timeout: 30000
+
+  # 内容转换模块配置
+  convert:
+    enable: false
+    # URL转Markdown配置
+    url_to_md:
+      enable: false
+      input_file: "url/test.json" # 从get_url的输出作为输入
+      output_dir: "docs/original_md"
+      onlyMainContent: true
+      includeTags: []
+      excludeTags: [nav, header, footer, aside, script, style, '.sidebar', '.menu', '.navbar', '.header-container', '.footer-container', '.nav', '#sidebar', '#menu', '#nav', '#header', '#footer']
+    # 本地文件转Markdown配置 (如果需要，目前只处理URL)
+    local_to_md:
+      enable: false
+      input_dir: "docs/raw_docs"
+      extensions: ["md", "txt"]
+      output_dir: "docs/original_md"
+
+  # 文档切割模块配置
+  split:
+    enable: true
+    input_dir: "docs/test_md"
+    output_dir: "docs/splitted_md"
+    method: heading    # 可设为 "heading" 或 "lines"
+    level: 3           # heading 模式切割级别
+    max_lines: 200     # lines 模式行数

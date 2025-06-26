@@ -1,0 +1,30 @@
+{
+    "Aliyun": {
+        "image": "https://help.aliyun.com/zh/cdn/user-guide/image-editing/",
+        "video": "https://help.aliyun.com/zh/cdn/user-guide/video-related-settings/",
+        "performance": "https://help.aliyun.com/zh/cdn/user-guide/performance-optimization-overview"
+    },
+    "Bunny": {
+        "image": "https://docs.bunny.net/docs/stream-image-processing"
+    },
+    "Qiniu": {
+        "image": "https://developer.qiniu.com/dora/3683/img-directions-for-use",
+        "video": "https://developer.qiniu.com/dora/1247/audio-and-video-metadata-information-avinfo"
+    },
+    "Cloudflare": {
+        "image": "https://developers.cloudflare.com/images/transform-images/transform-via-url/"
+    },
+    "Ctyun": {
+        "image": "https://www.ctyun.cn/document/10015932/10641423"
+    },
+    "Fastly": {
+        "image": "https://www.fastly.com/documentation/reference/io/"
+    },
+    "Gcore":{
+        "image": "https://gcore.com/docs/cdn/cdn-resource-options/image-optimization-paid/about-image-stack"
+    },
+    "Upyun": {
+        "image": "https://help.upyun.com/knowledge-base/image/#e58a9fe883bd",
+        "video": "https://help.upyun.com/knowledge-base/cdn-video-drag/"
+    }
+}
