@@ -1,17 +1,33 @@
 # LLM-Doc-Extract
 
-基于Python的文档预处理工具，可以从指定的URL获取文档内容，将其转换为Markdown格式，并根据配置规则进行文档切割。
+基于 Python 的文档信息提取工具，支持从 URL 或本地文件获取文档内容，将其转换为 Markdown 格式，通过 LLM 提取结构化信息，并支持多模型投票以提高准确性。
 
 ## 功能特点
 
-- 支持从URL获取文档内容
-- 使用Jina AI进行文档格式转换
-- 自动清理网页导航栏等无关内容
-- 支持多种文档切割方式：
-  - 按标题级别切割
-  - 按行数切割
-- 支持批量处理多个URL
-- 可配置的输出格式和命名规则
+- 文档获取与预处理：
+  - 支持从 URL 获取文档内容
+  - 支持本地文档转换
+  - 自动清理网页导航栏等无关内容
+  - 支持多种文档切割方式：
+    - 按标题级别切割
+    - 按行数切割
+
+- LLM 信息提取：
+  - 支持多个 LLM 模型（如 Qwen、GPT、Claude 等）
+  - 基于 Prompt 模板的信息提取
+  - 支持示例学习
+  - 结构化 JSON 输出
+
+- 多模型投票机制：
+  - 支持多数投票
+  - 支持加权投票
+  - 支持共识投票
+  - 可配置投票字段和权重
+
+- 结果处理：
+  - JSON 格式输出
+  - 支持文件合并
+  - 灵活的输出路径配置
 
 ## 项目结构
 
@@ -20,10 +36,24 @@
 ├── config.yaml          # 配置文件
 ├── main.py             # 主程序入口
 ├── requirements.txt    # 项目依赖
-├── src/
-│   ├── config_loader.py    # 配置加载器
-│   └── document_processor.py # 文档处理器
-└── output/            # 输出目录
+├── src/                # 源代码目录
+│   ├── get_url.py         # URL 内容获取
+│   ├── convert.py         # 文档格式转换
+│   ├── splitter.py        # 文档切割
+│   ├── extractor.py       # 信息提取
+│   ├── voter.py           # 投票处理
+│   ├── json_combiner.py   # JSON 合并
+│   └── prompt_contributor.py # Prompt 管理
+├── docs/               # 文档目录
+│   ├── original_md/       # 原始 Markdown
+│   ├── splitted_md/       # 切割后的文档
+│   ├── extracted_json/    # 提取的 JSON
+│   ├── voted_json/        # 投票后的 JSON
+│   └── json/             # 合并后的 JSON
+├── prompt/             # Prompt 相关
+│   ├── template/          # 提取模板
+│   └── example/          # 示例文件
+└── providers/          # LLM 提供商配置
 ```
 
 ## 安装
@@ -44,22 +74,43 @@ pip install -r requirements.txt
 在 `config.yaml` 文件中配置：
 
 ```yaml
-# URLs to process
-urls:
-  - https://example.com/doc1
-  - https://example.com/doc2
+# 文档处理配置
+processing:
+  # URL 爬取配置
+  get_url:
+    enable: true
+    input_file: "url/input.json"
 
-# Document splitting configuration
-splitting:
-  method: heading  # 'heading' or 'line_count'
-  max_heading_level: 2  # 如果按标题切割
-  lines_per_split: 100  # 如果按行数切割
+  # 文档转换配置
+  convert:
+    enable: true
+    url_to_md:
+      output_dir: "docs/original_md"
 
-# Output configuration
-output:
-  output_dir: ./output
-  file_prefix: doc_
-  file_extension: md
+  # 文档切割配置
+  split:
+    enable: true
+    method: heading    # heading 或 lines
+    level: 3           # 标题级别
+
+# 信息提取配置
+extracting:
+  # 输出路径配置
+  output_paths:
+    extracted_json_dir: "docs/extracted_json"
+    voted_json_dir: "docs/voted_json"
+    combined_json_dir: "docs/json"
+
+  # LLM 配置
+  LLM:
+    model_name: ["model1", "model2"]
+    default_model: model1
+
+  # 投票配置
+  Vote:
+    enable: true
+    vote_type: majority  # majority, weighted, consensus
+    key_parameter: ["key1", "key2"]
 ```
 
 ## 使用方法
@@ -71,29 +122,31 @@ python main.py
 ```
 
 程序将自动：
-- 读取配置的URL列表
 - 获取并转换文档内容
-- 根据配置规则切割文档
-- 将结果保存到输出目录
+- 切割文档为合适大小
+- 使用 LLM 提取信息
+- 通过多模型投票优化结果
+- 合并处理后的 JSON 文件
 
 ## 扩展性
 
 该工具设计时考虑了扩展性：
 
-1. 文档处理模块化：
-   - 配置加载
-   - 文档获取
-   - 内容转换
-   - 文档切割
-   - 输出处理
+1. 模块化设计：
+   - 文档获取与预处理
+   - LLM 信息提取
+   - 投票机制
+   - 结果处理
 
-2. 易于添加新功能：
-   - 新的文档切割策略
-   - 其他文档格式支持
-   - 自定义处理规则
+2. 易于扩展：
+   - 支持新的 LLM 模型
+   - 自定义投票策略
+   - 自定义提取模板
+   - 灵活的输出处理
 
 ## 注意事项
 
-- 确保有足够的网络访问权限
+- 确保配置了正确的 LLM API 密钥
 - 遵守目标网站的爬虫政策
-- 建议对重要文档进行备份
+- 合理设置文档切割参数
+- 根据需要选择合适的投票策略
