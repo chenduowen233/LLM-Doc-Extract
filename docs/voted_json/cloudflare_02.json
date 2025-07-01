@@ -1,0 +1,42 @@
+{
+  "gamma": {
+    "description": "通过系数增加曝光度。值为 1.0 表示无变化，值为 0.5 将使图像变暗，值为 2.0 将使图像变亮。0 值将被忽略。",
+    "prefix": "gamma=",
+    "separator": "null",
+    "type": "float",
+    "default": "null",
+    "constraints": "必须为大于 0 的浮点数。"
+  },
+  "fit": {
+    "description": "影响 width 和 height 的解释方式。所有调整大小的模式都保留宽高比。可用模式包括 scale-down、contain、cover、crop 和 pad。",
+    "prefix": "fit=",
+    "separator": "null",
+    "type": "enum",
+    "default": "null",
+    "constraints": "允许值为 'scale-down'、'contain'、'cover'、'crop' 或 'pad'（全部小写）。"
+  },
+  "format": {
+    "description": "指定输出格式。auto 选项将为支持 WebP 或 AVIF 格式的浏览器提供这些格式。其他选项包括 avif、webp、jpeg、baseline-jpeg 和 json。",
+    "prefix": "format=",
+    "separator": "null",
+    "type": "enum",
+    "default": "null",
+    "constraints": "允许值为 'auto'、'avif'、'webp'、'jpeg'、'baseline-jpeg' 或 'json'（全部小写）。"
+  },
+  "flip": {
+    "description": "水平、垂直或同时翻转图像。可以与 rotate 参数一起使用以设置图像方向。",
+    "prefix": "flip=",
+    "separator": "null",
+    "type": "enum",
+    "default": "null",
+    "constraints": "允许值为 'h'、'v' 或 'hv'（全部小写）。"
+  },
+  "dpr": {
+    "description": "设备像素比。默认值为 1。作为 width/height 的倍增器，方便在 <img srcset> 中指定更高 DPI 的尺寸。",
+    "prefix": "dpr=",
+    "separator": "null",
+    "type": "int",
+    "default": "1",
+    "constraints": "必须为正整数。"
+  }
+}

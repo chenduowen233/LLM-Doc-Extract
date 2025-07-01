@@ -1,0 +1,186 @@
+{
+    "blur": {
+        "description": "Blur radius between `1` (slight blur) and `250` (maximum). Be aware that you cannot use this option to reliably obscure image content.",
+        "prefix": "blur=",
+        "separator": ",",
+        "type": "int",
+        "default": "null",
+        "constraints": "范围为 `1` 至 `250` 的整数。"
+    },
+    "brightness": {
+        "description": "Increase brightness by a factor. A value of `1.0` equals no change, a value of `0.5` equals half brightness, and a value of `2.0` equals twice as bright. `0` is ignored.",
+        "prefix": "brightness=",
+        "separator": ",",
+        "type": "float",
+        "default": "null",
+        "constraints": "浮点数，推荐范围为大于 `0`。"
+    },
+    "background": {
+        "description": "Background color to add underneath the image. Applies to images with transparency (for example, PNG) and images resized with `fit=pad`. Accepts any CSS color using CSS4 modern syntax.",
+        "prefix": "background=",
+        "separator": ",",
+        "type": "string",
+        "default": "null",
+        "constraints": "支持 CSS 颜色值，例如：`#RRGGBB`, `red`, 或 `rgb(240,40,145)`。URL 中特殊字符需进行编码。"
+    },
+    "anim": {
+        "description": "Whether to preserve animation frames from input files. Default is `true`. Setting it to `false` reduces animations to still images.",
+        "prefix": "anim=",
+        "separator": ",",
+        "type": "boolean",
+        "default": "true",
+        "constraints": "仅允许取 'true' 或 'false'（全部小写）。"
+    },
+    "compression": {
+        "description": "Slightly reduces latency on a cache miss by selecting a quickest-to-compress file format, at a cost of increased file size and lower image quality.",
+        "prefix": "compression=",
+        "separator": ",",
+        "type": "enum",
+        "default": "null",
+        "constraints": "仅允许值为 `'fast'`。"
+    },
+    "contrast": {
+        "description": "Increase contrast by a factor. A value of `1.0` equals no change, a value of `0.5` equals low contrast, and a value of `2.0` equals high contrast. `0` is ignored.",
+        "prefix": "contrast=",
+        "separator": ",",
+        "type": "float",
+        "default": "null",
+        "constraints": "浮点数，推荐范围为大于 `0`。"
+    },
+    "gamma": {
+        "description": "通过系数增加曝光度。值为 1.0 表示无变化，值为 0.5 将使图像变暗，值为 2.0 将使图像变亮。0 值将被忽略。",
+        "prefix": "gamma=",
+        "separator": "null",
+        "type": "float",
+        "default": "null",
+        "constraints": "必须为大于 0 的浮点数。"
+    },
+    "fit": {
+        "description": "影响 width 和 height 的解释方式。所有调整大小的模式都保留宽高比。可用模式包括 scale-down、contain、cover、crop 和 pad。",
+        "prefix": "fit=",
+        "separator": "null",
+        "type": "enum",
+        "default": "null",
+        "constraints": "允许值为 'scale-down'、'contain'、'cover'、'crop' 或 'pad'（全部小写）。"
+    },
+    "format": {
+        "description": "指定输出格式。auto 选项将为支持 WebP 或 AVIF 格式的浏览器提供这些格式。其他选项包括 avif、webp、jpeg、baseline-jpeg 和 json。",
+        "prefix": "format=",
+        "separator": "null",
+        "type": "enum",
+        "default": "null",
+        "constraints": "允许值为 'auto'、'avif'、'webp'、'jpeg'、'baseline-jpeg' 或 'json'（全部小写）。"
+    },
+    "flip": {
+        "description": "水平、垂直或同时翻转图像。可以与 rotate 参数一起使用以设置图像方向。",
+        "prefix": "flip=",
+        "separator": "null",
+        "type": "enum",
+        "default": "null",
+        "constraints": "允许值为 'h'、'v' 或 'hv'（全部小写）。"
+    },
+    "dpr": {
+        "description": "设备像素比。默认值为 1。作为 width/height 的倍增器，方便在 <img srcset> 中指定更高 DPI 的尺寸。",
+        "prefix": "dpr=",
+        "separator": "null",
+        "type": "int",
+        "default": "1",
+        "constraints": "必须为正整数。"
+    },
+    "height": {
+        "description": "指定图像的最大高度（以像素为单位）。具体行为取决于 fit 模式。",
+        "prefix": "height=",
+        "separator": "null",
+        "type": "int",
+        "default": "null",
+        "constraints": "必须是有效整数像素值。"
+    },
+    "gravity": {
+        "description": "当使用 fit: 'cover' 和 fit: 'crop' 裁剪时，此参数定义不应裁剪的边或点。",
+        "prefix": "gravity=",
+        "separator": "null",
+        "type": "enum|string",
+        "default": "null",
+        "constraints": "允许值：'auto', 'left', 'right', 'top', 'bottom', 或形如 '0x1' 的坐标格式（范围为 0.0 到 1.0）。"
+    },
+    "quality": {
+        "description": "为 JPEG、WebP 和 AVIF 格式的图像指定质量。质量范围为 1-100，常用值在 50（低质量，小文件）到 90（高质量，大文件）之间。也可以设置感知质量等级。",
+        "prefix": "quality=",
+        "separator": "null",
+        "type": "int|enum",
+        "default": "85",
+        "constraints": "允许值：1-100 的整数值 或 'high', 'medium-high', 'medium-low', 'low'。"
+    },
+    "onerror": {
+        "description": "在发生阻止图像调整大小的致命错误时，重定向到未调整大小的源图像 URL。",
+        "prefix": "onerror=",
+        "separator": "null",
+        "type": "string",
+        "default": "null",
+        "constraints": "仅支持值 'redirect'。"
+    },
+    "metadata": {
+        "description": "控制应保留的不可见元数据 (EXIF 数据) 数量。",
+        "prefix": "metadata=",
+        "separator": "null",
+        "type": "enum",
+        "default": "copyright",
+        "constraints": "允许值：'copyright', 'keep', 'none'。"
+    },
+    "width": {
+        "description": "指定图像的最大宽度。具体行为取决于 fit 模式；使用 fit=scale-down 可确保图像不会被不必要地放大。",
+        "prefix": "width=",
+        "separator": "null",
+        "type": "int",
+        "default": "null",
+        "constraints": "可以是像素宽度或 auto。"
+    },
+    "saturation": {
+        "description": "增加饱和度的倍数。值为 1.0 表示无变化，0.5 表示一半饱和度，2.0 表示两倍饱和度。值为 0 将把图像转换为灰度。",
+        "prefix": "saturation=",
+        "separator": "null",
+        "type": "float",
+        "default": "null",
+        "constraints": "允许的值为浮点数，例如 0.5 或 2.0。"
+    },
+    "rotate": {
+        "description": "图像旋转的度数（90、180 或 270）。width 和 height 选项指代旋转后的轴。",
+        "prefix": "rotate=",
+        "separator": "null",
+        "type": "enum",
+        "default": "null",
+        "constraints": "仅允许取值为 '90'、'180' 或 '270'。"
+    },
+    "w": {
+        "description": "width 的 URL 格式别名。",
+        "prefix": "w=",
+        "separator": "null",
+        "type": "string or integer",
+        "default": "null",
+        "constraints": "与 width 相同。"
+    },
+    "trim": {
+        "description": "指定每侧裁剪掉的像素数。允许移除边框或裁剪出图像的特定片段。修剪操作在调整大小或旋转之前进行，并考虑 dpr。可通过 top;right;bottom;left 形式提供四个数字，或通过单独的属性 trim.width、trim.height、trim.left、trim.top 提供。",
+        "prefix": "trim=",
+        "separator": ";",
+        "type": "string",
+        "default": "null",
+        "constraints": "URL 格式：top;right;bottom;left 或单独的 trim 属性。Workers 中以对象形式提供。"
+    },
+    "sharpen": {
+        "description": "指定应用于图像的锐化滤镜的强度。值是一个介于 0（无锐化，默认）和 10（最大）之间的浮点数。对于缩小比例的图像，推荐值为 1。",
+        "prefix": "sharpen=",
+        "separator": "null",
+        "type": "float",
+        "default": "0",
+        "constraints": "允许的值范围为 0 到 10 的浮点数。"
+    },
+    "slow-connection-quality": {
+        "description": "在检测到慢速连接时覆盖 quality 值。",
+        "prefix": "slow-connection-quality=",
+        "separator": "null",
+        "type": "int",
+        "default": "null",
+        "constraints": "与 quality 参数的可用选项相同。"
+    }
+}

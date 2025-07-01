@@ -1,0 +1,154 @@
+{
+  "coalesce": {
+    "description": "是否填充动态 GIF 图像中共同部分，默认 `true`",
+    "pattern": "/coalesce/{}",
+    "separator": "/",
+    "type": "boolean",
+    "default": "true",
+    "constraints": "true/false"
+  },
+  "gdstopcolor": {
+    "description": "结束位置颜色及透明度",
+    "pattern": "/gdstopcolor/{}",
+    "separator": "/",
+    "type": "string",
+    "default": "null",
+    "constraints": "RRGGBBAA，如 FF000000（红色不透明）"
+  },
+  "copyright": {
+    "description": "指定 Exif 中的版权信息，需要 Base64 编码",
+    "pattern": "/exifset/copyright/{}",
+    "separator": "/",
+    "type": "string",
+    "default": "null",
+    "constraints": "Base64 版权信息"
+  },
+  "noicc": {
+    "description": "清除图片 ICC 信息，默认 `false`",
+    "pattern": "/noicc/{}",
+    "separator": "/",
+    "type": "boolean",
+    "default": "false",
+    "constraints": "true/false"
+  },
+  "artist": {
+    "description": "指定 Exif 中的作者信息，需要 Base64 编码",
+    "pattern": "/exifset/artist/{}",
+    "separator": "/",
+    "type": "string",
+    "default": "null",
+    "constraints": "Base64 作者信息"
+  },
+  "compress": {
+    "description": "JPG 、 PNG 大小压缩优化，默认 `false`",
+    "pattern": "/compress/{}",
+    "separator": "/",
+    "type": "boolean",
+    "default": "false",
+    "constraints": "true/false"
+  },
+  "gdori": {
+    "description": "渐变方向",
+    "pattern": "/gdori/{}",
+    "separator": "/",
+    "type": "enum",
+    "default": "null",
+    "constraints": "top,down; bottom,up; left,right; right,left"
+  },
+  "gdstartcolor": {
+    "description": "开始位置颜色及透明度",
+    "pattern": "/gdstartcolor/{}",
+    "separator": "/",
+    "type": "string",
+    "default": "null",
+    "constraints": "RRGGBBAA，如 FF000000（红色不透明）"
+  },
+  "strip": {
+    "description": "去除图片所有元信息，包括 EXIF 、ICC 等。默认 `false`",
+    "pattern": "/strip/{}",
+    "separator": "/",
+    "type": "boolean",
+    "default": "false",
+    "constraints": "true/false"
+  },
+  "format": {
+    "description": "可选值 `jpg`、`png`、`webp`。`webp` 包含动态 WebP",
+    "pattern": "/format/{}",
+    "separator": "/",
+    "type": "enum",
+    "default": "null",
+    "constraints": "jpg, png, webp"
+  },
+  "lossless": {
+    "description": "无损压缩，默认 `false`。仅当输出格式是 `WebP` 时有效",
+    "pattern": "/lossless/{}",
+    "separator": "/",
+    "type": "boolean",
+    "default": "false",
+    "constraints": "true/false"
+  },
+  "exformat": {
+    "description": "返回颜色的进制，默认 `dec`",
+    "pattern": "/exformat/{}",
+    "separator": "/",
+    "type": "enum",
+    "default": "dec",
+    "constraints": "dec, hex"
+  },
+  "gifto": {
+    "description": "多帧 GIF 图片转为单帧 GIF 图片",
+    "pattern": "/gifto/{}",
+    "separator": "/",
+    "type": "boolean",
+    "default": "true",
+    "constraints": "true/false"
+  },
+  "excolor": {
+    "description": "提取的颜色数量",
+    "pattern": "/excolor/{}",
+    "separator": "/",
+    "type": "integer",
+    "default": "null",
+    "constraints": "[1-4096]"
+  },
+  "quality": {
+    "description": "设置压缩质量",
+    "pattern": "/quality/{}",
+    "separator": "/",
+    "type": "integer",
+    "default": "null",
+    "constraints": "[1-99]"
+  },
+  "progressive": {
+    "description": "JPG 图片渐进式加载，图片加载从模糊到清晰",
+    "pattern": "/progressive/{}",
+    "separator": "/",
+    "type": "boolean",
+    "default": "true",
+    "constraints": "true/false"
+  },
+  "gdpos": {
+    "description": "渐变从开始位置至结束位置。单位像素（px）",
+    "pattern": "/gdpos/{}",
+    "separator": "/",
+    "type": "string",
+    "default": "null",
+    "constraints": "开始位置,结束位置，如 10,100"
+  },
+  "ignore-error": {
+    "description": "是否忽略错误返回原图 ，默认 `false`，返回错误",
+    "pattern": "/ignore-error/{}",
+    "separator": "/",
+    "type": "boolean",
+    "default": "false",
+    "constraints": "true/false"
+  },
+  "exifswitch": {
+    "description": "保留 EXIF 信息 ，默认会删除 EXIF 信息",
+    "pattern": "/exifswitch/{}",
+    "separator": "/",
+    "type": "boolean",
+    "default": "true",
+    "constraints": "true/false"
+  }
+}

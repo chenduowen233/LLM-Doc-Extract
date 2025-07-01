@@ -37,3 +37,44 @@ processing:
     method: heading    # 可设为 "heading" 或 "lines"
     level: 3           # heading 模式切割级别
     max_lines: 200     # lines 模式行数
+
+# 文档信息提取配置
+extracting:
+  output_paths:
+    extracted_json_dir: "docs/extracted_json"
+    voted_json_dir: "docs/voted_json"
+    combined_json_dir: "docs/json"
+
+  # prompt构造配置
+  prompt:
+    enable: true
+    template_path: "prompt/template/extract.txt" # 模板文件路径
+    example_dir: "prompt/example" # 示例文件目录
+    document_dir: "docs/splitted_md" # 文档片段目录
+    document_match_pattern: "" # 用于模糊匹配文档片段的根名称，空字符串表示不进行模糊匹配
+
+  # LLM配置
+  LLM:
+    model_name: ["qwen-max-2025-01-25", "qwen-plus-latest", "qwen-turbo"]
+    # 选择默认模型
+    default_model: qwen-plus
+    # LLM提供商配置文件路径
+    provider_config_path: providers
+    # 提供商与模型的映射关系
+    model_provider_mapping:
+      gpt-3.5-turbo: openai
+      deepseek-r1: qwen
+      qwen-plus: qwen
+      qwen-max-2025-01-25: qwen
+      qwen-turbo: qwen
+      qwen-plus-latest: qwen
+      claude-3: claude
+
+  # 投票方法配置
+  Vote:
+    enable: True
+    vote_type: majority # Options: majority, weighted, consensus
+    key_parameter: ["prefix", "separator", "type", "default"] # The key in the JSON response to vote on
+    model_weights: # Only for weighted voting
+      qwen-max-2025-01-25: 1.0
+      qwen-plus: 1.2

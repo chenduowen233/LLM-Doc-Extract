@@ -1,0 +1,19 @@
+# Qwen LLM提供商配置
+api_key: "sk-dceb1dd54c51443f8e96e6b64c59e42d"
+api_base: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+models:
+  qwen-plus:
+    params:
+      temperature: 0
+  qwen-max-2025-01-25:
+    params:
+      temperature: 0
+  deepseek-r1:
+    params:
+      temperature: 0
+  qwen-turbo:
+    params:
+      temperature: 0
+  qwen-plus-latest:
+    params:
+      temperature: 0

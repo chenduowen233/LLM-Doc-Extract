@@ -1,0 +1,42 @@
+{
+  "height": {
+    "description": "指定图像的最大高度（以像素为单位）。具体行为取决于 fit 模式。",
+    "prefix": "height=",
+    "separator": "null",
+    "type": "int",
+    "default": "null",
+    "constraints": "必须是有效整数像素值。"
+  },
+  "gravity": {
+    "description": "当使用 fit: 'cover' 和 fit: 'crop' 裁剪时，此参数定义不应裁剪的边或点。",
+    "prefix": "gravity=",
+    "separator": "null",
+    "type": "enum|string",
+    "default": "null",
+    "constraints": "允许值：'auto', 'left', 'right', 'top', 'bottom', 或形如 '0x1' 的坐标格式（范围为 0.0 到 1.0）。"
+  },
+  "quality": {
+    "description": "为 JPEG、WebP 和 AVIF 格式的图像指定质量。质量范围为 1-100，常用值在 50（低质量，小文件）到 90（高质量，大文件）之间。也可以设置感知质量等级。",
+    "prefix": "quality=",
+    "separator": "null",
+    "type": "int|enum",
+    "default": "85",
+    "constraints": "允许值：1-100 的整数值 或 'high', 'medium-high', 'medium-low', 'low'。"
+  },
+  "onerror": {
+    "description": "在发生阻止图像调整大小的致命错误时，重定向到未调整大小的源图像 URL。",
+    "prefix": "onerror=",
+    "separator": "null",
+    "type": "string",
+    "default": "null",
+    "constraints": "仅支持值 'redirect'。"
+  },
+  "metadata": {
+    "description": "控制应保留的不可见元数据 (EXIF 数据) 数量。",
+    "prefix": "metadata=",
+    "separator": "null",
+    "type": "enum",
+    "default": "copyright",
+    "constraints": "允许值：'copyright', 'keep', 'none'。"
+  }
+}

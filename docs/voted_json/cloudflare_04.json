@@ -1,0 +1,58 @@
+{
+  "width": {
+    "description": "指定图像的最大宽度。具体行为取决于 fit 模式；使用 fit=scale-down 可确保图像不会被不必要地放大。",
+    "prefix": "width=",
+    "separator": "null",
+    "type": "int",
+    "default": "null",
+    "constraints": "可以是像素宽度或 auto。"
+  },
+  "saturation": {
+    "description": "增加饱和度的倍数。值为 1.0 表示无变化，0.5 表示一半饱和度，2.0 表示两倍饱和度。值为 0 将把图像转换为灰度。",
+    "prefix": "saturation=",
+    "separator": "null",
+    "type": "float",
+    "default": "null",
+    "constraints": "允许的值为浮点数，例如 0.5 或 2.0。"
+  },
+  "rotate": {
+    "description": "图像旋转的度数（90、180 或 270）。width 和 height 选项指代旋转后的轴。",
+    "prefix": "rotate=",
+    "separator": "null",
+    "type": "enum",
+    "default": "null",
+    "constraints": "仅允许取值为 '90'、'180' 或 '270'。"
+  },
+  "w": {
+    "description": "width 的 URL 格式别名。",
+    "prefix": "w=",
+    "separator": "null",
+    "type": "string or integer",
+    "default": "null",
+    "constraints": "与 width 相同。"
+  },
+  "trim": {
+    "description": "指定每侧裁剪掉的像素数。允许移除边框或裁剪出图像的特定片段。修剪操作在调整大小或旋转之前进行，并考虑 dpr。可通过 top;right;bottom;left 形式提供四个数字，或通过单独的属性 trim.width、trim.height、trim.left、trim.top 提供。",
+    "prefix": "trim=",
+    "separator": ";",
+    "type": "string",
+    "default": "null",
+    "constraints": "URL 格式：top;right;bottom;left 或单独的 trim 属性。Workers 中以对象形式提供。"
+  },
+  "sharpen": {
+    "description": "指定应用于图像的锐化滤镜的强度。值是一个介于 0（无锐化，默认）和 10（最大）之间的浮点数。对于缩小比例的图像，推荐值为 1。",
+    "prefix": "sharpen=",
+    "separator": "null",
+    "type": "float",
+    "default": "0",
+    "constraints": "允许的值范围为 0 到 10 的浮点数。"
+  },
+  "slow-connection-quality": {
+    "description": "在检测到慢速连接时覆盖 quality 值。",
+    "prefix": "slow-connection-quality=",
+    "separator": "null",
+    "type": "int",
+    "default": "null",
+    "constraints": "与 quality 参数的可用选项相同。"
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "repeat": {
+    "description": "水印图片是否重复铺满原图",
+    "pattern": "/repeat/{}",
+    "separator": "/",
+    "type": "boolean",
+    "default": "false",
+    "constraints": "true/false"
+  },
+  "percent": {
+    "description": "水印图片自适应原图短边的比例",
+    "pattern": "/percent/{}",
+    "separator": "/",
+    "type": "integer",
+    "default": "0",
+    "constraints": "取值范围 [0-100]"
+  },
+  "size": {
+    "description": "文字大小，单位 px",
+    "pattern": "/size/{}",
+    "separator": "/",
+    "type": "integer",
+    "default": "32",
+    "constraints": "如 16"
+  },
+  "gaussblur": {
+    "radius_sigma": {
+      "description": "高斯模糊",
+      "pattern": "/gaussblur/{}",
+      "separator": "/",
+      "type": "string",
+      "default": "null",
+      "constraints": "模糊半径x标准差，如 5×2"
+    }
+  },
+  "rotate": {
+    "fixed": {
+      "description": "自动扶正",
+      "pattern": "/rotate/{}",
+      "separator": "/",
+      "type": "string",
+      "default": "null",
+      "constraints": "auto"
+    },
+    "angle": {
+      "description": "按角度旋转",
+      "pattern": "/rotate/{}",
+      "separator": "/",
+      "type": "integer",
+      "default": "null",
+      "constraints": "`(0, 360]`，如 90°"
+    }
+  },
+  "animate": {
+    "description": "允许对动态图片加水印",
+    "pattern": "/animate/{}",
+    "separator": "/",
+    "type": "boolean",
+    "default": "false",
+    "constraints": "true/false"
+  },
+  "margin": {
+    "description": "水印或文字横纵相对偏移",
+    "pattern": "/margin/{}x{}",
+    "separator": "/",
+    "type": "string",
+    "default": "20x20",
+    "constraints": "格式为 `<x>x<y>`，如 15×10，`x` 是小写字母 x，不是乘号"
+  },
+  "canvas": {
+    "whxy": {
+      "description": "画布尺寸，`w` 表示画布宽，`h` 表示画布高，`x`、`y` 表示图片左上角在画布中的坐标，如果 `x`、`y` 不存在，则图片在画布中间",
+      "pattern": "/canvas/{}",
+      "separator": "/",
+      "type": "string",
+      "default": "null",
+      "constraints": "宽x高axay，如 600x400a50a20"
+    },
+    "cvscolor": {
+      "description": "边框颜色和透明度，默认 FFFFFF00（白色不透明）",
+      "pattern": "/cvscolor/{}",
+      "separator": "/",
+      "type": "string",
+      "default": "FFFFFF00",
+      "constraints": "RRGGBBAA，如 FF000000（红色不透明）"
+    },
+    "gravity": {
+      "description": "裁剪开始的方位，默认 `northwest`",
+      "pattern": "/gravity/{}",
+      "separator": "/",
+      "type": "enum",
+      "default": "northwest",
+      "constraints": "方位，如 north"
+    }
+  },
+  "gray": {
+    "boolean": {
+      "description": "是否把图片转换成灰白图，默认 `false`",
+      "pattern": "/gray/{}",
+      "separator": "/",
+      "type": "boolean",
+      "default": "false",
+      "constraints": "true"
+    }
+  },
+  "unsharp": {
+    "boolean": {
+      "description": "锐化，默认 `false`",
+      "pattern": "/unsharp/{}",
+      "separator": "/",
+      "type": "boolean",
+      "default": "false",
+      "constraints": "true"
+    }
+  },
+  "font": {
+    "description": "文字字体参数名",
+    "pattern": "/font/{}",
+    "separator": "/",
+    "type": "enum",
+    "default": "simsun",
+    "constraints": "可用字体：simsun, simhei, simkai, simli, simyou, simfang, sc, tc, arial, georgia, helvetica, roman"
+  },
+  "meta": {
+    "description": "获取 EXIF 信息 + 基本信息",
+    "pattern": "/meta",
+    "separator": "/",
+    "type": "string",
+    "default": "null",
+    "constraints": "无"
+  },
+  "brdcolor": {
+    "description": "边框颜色和透明度",
+    "pattern": "/brdcolor/{}",
+    "separator": "/",
+    "type": "string",
+    "default": "FFFFFF00",
+    "constraints": "RRGGBBAA 格式，如 FF000000（红色不透明），AA 表示不透明度，取值 [0-255]"
+  },
+  "color": {
+    "description": "字体颜色",
+    "pattern": "/color/{}",
+    "separator": "/",
+    "type": "string",
+    "default": "000000",
+    "constraints": "RRGGBB 格式，如 FF0000（红色）"
+  },
+  "opacity": {
+    "description": "水印或文字透明度",
+    "pattern": "/opacity/{}",
+    "separator": "/",
+    "type": "integer",
+    "default": "100",
+    "constraints": "取值范围 [0-100]，值越大越不透明，`0` 完全透明，`100` 完全不透明"
+  },
+  "cvscolor": {
+    "description": "画布颜色和透明度",
+    "pattern": "/cvscolor/{}",
+    "separator": "/",
+    "type": "string",
+    "default": "FFFFFF00",
+    "constraints": "RRGGBBAA 格式，如 FF000000（红色不透明），AA 表示不透明度，取值 [0-255]"
+  },
+  "gravity": {
+    "description": "裁剪开始的方位",
+    "pattern": "/gravity/{}",
+    "separator": "/",
+    "type": "enum",
+    "default": "northwest",
+    "constraints": "支持方位：northwest, north, northeast, west, center, east, southwest, south, southeast"
+  },
+  "border": {
+    "wh": {
+      "description": "边框尺寸，`w` 表示左右边框宽度，`h` 表示上下边框宽度",
+      "pattern": "/border/{}",
+      "separator": "/",
+      "type": "string",
+      "default": "null",
+      "constraints": "宽x高，如 3×2"
+    },
+    "brdcolor": {
+      "description": "边框颜色和透明度，默认 `FFFFFF00（白色不透明）`",
+      "pattern": "/brdcolor/{}",
+      "separator": "/",
+      "type": "string",
+      "default": "FFFFFF00",
+      "constraints": "RRGGBBAA，如 FF000000（红色不透明）"
+    }
+  },
+  "info": {
+    "description": "获取基本信息（包括宽、高、格式、帧数）",
+    "pattern": "/info",
+    "separator": "/",
+    "type": "string",
+    "default": "null",
+    "constraints": "无"
+  },
+  "flip": {
+    "orientation": {
+      "description": "翻转方向，可选值：`left,right`、`top,down`",
+      "pattern": "/flip/{}",
+      "separator": "/",
+      "type": "enum",
+      "default": "null",
+      "constraints": "方向，如 `left,right`"
+    }
+  },
+  "align": {
+    "description": "水印或文字放置方位",
+    "pattern": "/align/{}",
+    "separator": "/",
+    "type": "enum",
+    "default": "northwest",
+    "constraints": "支持方位：northwest, north, northeast, west, center, east, southwest, south, southeast"
+  }
+}

@@ -1,0 +1,34 @@
+example input:
+功能
+--
+
+### 缩小&放大
+
+| 参数 | 值 | 说明 |
+| --- | --- | --- |
+| `/fw/<width>` | 宽，如 300 | 限定宽度，高度自适应 |
+| `/fh/<height>` | 高，如 200 | 限定高度，宽度自适应 |
+
+**注**
+
+* `fwfh` 当原图宽与期望缩放的宽的比例大于原图高与期望缩放的高的比例时，是 `fw`；否则，是 `fh`。
+* `scale` 值取 `20` 时，缩小后的图片宽高是原图宽高的 `20%`；取 `200` 时，放大后的图片宽高是原图宽高的 `200%`。
+* 特别地，大部分参数默认不支持放大，如果需要放大，请指定 `/force/true` 。 – `<w>x<h>` 中的 `x` 是小写字母 x，不是乘号。
+
+example output:
+"fw": {
+    "description": "限定宽度，高度自适应",
+    "pattern": "/fw/{}",
+    "separator": "/",
+    "type": "integer",
+    "default": "null",
+    "constraints": "宽，如 300"
+},
+"fh": {
+    "description": "限定高度，宽度自适应",
+    "pattern": "/fh/{}",
+    "separator": "/",
+    "type": "integer",
+    "default": "null",
+    "constraints": "高，如 200"
+},

@@ -1,0 +1,50 @@
+{
+  "blur": {
+    "description": "Blur radius between `1` (slight blur) and `250` (maximum). Be aware that you cannot use this option to reliably obscure image content.",
+    "prefix": "blur=",
+    "separator": ",",
+    "type": "int",
+    "default": "null",
+    "constraints": "范围为 `1` 至 `250` 的整数。"
+  },
+  "brightness": {
+    "description": "Increase brightness by a factor. A value of `1.0` equals no change, a value of `0.5` equals half brightness, and a value of `2.0` equals twice as bright. `0` is ignored.",
+    "prefix": "brightness=",
+    "separator": ",",
+    "type": "float",
+    "default": "null",
+    "constraints": "浮点数，推荐范围为大于 `0`。"
+  },
+  "background": {
+    "description": "Background color to add underneath the image. Applies to images with transparency (for example, PNG) and images resized with `fit=pad`. Accepts any CSS color using CSS4 modern syntax.",
+    "prefix": "background=",
+    "separator": ",",
+    "type": "string",
+    "default": "null",
+    "constraints": "支持 CSS 颜色值，例如：`#RRGGBB`, `red`, 或 `rgb(240,40,145)`。URL 中特殊字符需进行编码。"
+  },
+  "anim": {
+    "description": "Whether to preserve animation frames from input files. Default is `true`. Setting it to `false` reduces animations to still images.",
+    "prefix": "anim=",
+    "separator": ",",
+    "type": "boolean",
+    "default": "true",
+    "constraints": "仅允许取 'true' 或 'false'（全部小写）。"
+  },
+  "compression": {
+    "description": "Slightly reduces latency on a cache miss by selecting a quickest-to-compress file format, at a cost of increased file size and lower image quality.",
+    "prefix": "compression=",
+    "separator": ",",
+    "type": "enum",
+    "default": "null",
+    "constraints": "仅允许值为 `'fast'`。"
+  },
+  "contrast": {
+    "description": "Increase contrast by a factor. A value of `1.0` equals no change, a value of `0.5` equals low contrast, and a value of `2.0` equals high contrast. `0` is ignored.",
+    "prefix": "contrast=",
+    "separator": ",",
+    "type": "float",
+    "default": "null",
+    "constraints": "浮点数，推荐范围为大于 `0`。"
+  }
+}
